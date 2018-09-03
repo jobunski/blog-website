@@ -17,7 +17,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images',express.static(path.join(__dirname, 'public//images')));
+app.use('/css',express.static(path.join(__dirname, 'public/css')));
+app.use('/js',express.static(path.join(__dirname, 'public/js')));
+app.use('/fonts',express.static(path.join(__dirname, 'public/fonts')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -1,0 +1,24 @@
+//  section.col-6.col-12-narrower
+//    .box.post
+//      a.image.left(href='#')
+//        img(src='images/pic02.jpg', alt='')
+//      .inner
+//        h3= post.title2
+//        p #{post.content2}
+
+//.row
+//  section.col-6.col-12-narrower
+//    .box.post
+//      a.image.left(href='#')
+//        img(src='images/pic03.jpg', alt='')
+//      .inner
+//        h3= post.title3
+//        p #{post.content3}
+
+//  section.col-6.col-12-narrower
+//    .box.post
+//      a.image.left(href='#')
+//        img(src='images/pic04.jpg', alt='')
+//      .inner
+//        h3= post.title4
+//        p #{post.content4}

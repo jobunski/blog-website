@@ -1,5 +1,48 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  // Banner
+  section#banner
+    header
+      h2= title1
+    // Highlights
+  section.wrapper.style1
+  .container
+    .row.gtr-200
+      section.col-4.col-12-narrower
+        .box.highlight
+          i.icon.major.fa-paper-plane
+          h3= pageSection1.title1
+          p #{pageSection1.content1}
+
+      section.col-4.col-12-narrower
+        .box.highlight
+          i.icon.major.fa-pencil
+          h3= pageSection1.title2
+          p #{pageSection1.content2}
+
+      section.col-4.col-12-narrower
+        .box.highlight
+          i.icon.major.fa-wrench
+          h3= pageSection1.title3
+          p #{pageSection1.content3}
+
+  // Gigantic Heading
+  section.wrapper.style2
+  .container
+    header.major
+      h2= pageSection2.title1
+      p #{pageSection2.content1}
+
+  // Posts
+    section.wrapper.style1
+    .container
+      .row
+        section.col-6.col-12-narrower
+          .box.post
+          each val in posts
+            a.image.left(href='#')
+              img(src='images/pic01.jpg', alt='')
+            .inner
+              h3= val.title
+              p= val.content

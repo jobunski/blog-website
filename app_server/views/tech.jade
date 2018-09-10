@@ -10,57 +10,37 @@ block content
             // Content
             article
               header
-                h2 Right Sidebar
-                p Sidebar on the right, content on the left.
+                h2= title
+                p #{content}
               span.image.featured
                 img(src='images/banner.jpg', alt='')
-              p
-                  Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-                  Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-                  Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
-                  consequat etiam lorem ipsum dolor sit amet nullam.
-              h3 And Yet Another Subheading
-              p
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus
-                  justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem. Pellentesque lorem felis,
-                  ultricies a bibendum id, bibendum sit amet nisl. Mauris et lorem quam. Maecenas rutrum imperdiet
-                  vulputate. Nulla quis nibh ipsum, sed egestas justo. Morbi ut ante mattis orci convallis tempor.
-                  Etiam a lacus a lacus pharetra porttitor quis accumsan odio. Sed vel euismod nisi. Etiam convallis
-                  rhoncus dui quis euismod. Maecenas lorem tellus, congue et condimentum ac, ullamcorper non sapien.
-                  Donec sagittis massa et leo semper a scelerisque metus faucibus. Morbi congue mattis mi.
-                  Phasellus sed nisl vitae risus tristique volutpat. Cras rutrum commodo luctus.
-              p
-                  Phasellus odio risus, faucibus et viverra vitae, eleifend ac purus. Praesent mattis, enim
-                  quis hendrerit porttitor, sapien tortor viverra magna, sit amet rhoncus nisl lacus nec arcu.
-                  Suspendisse laoreet metus ut metus imperdiet interdum aliquam justo tincidunt. Mauris dolor urna,
-                  fringilla vel malesuada ac, dignissim eu mi. Praesent mollis massa ac nulla pretium pretium.
-                  Maecenas tortor mauris, consectetur pellentesque dapibus eget, tincidunt vitae arcu.
-                  Vestibulum purus augue, tincidunt sit amet iaculis id, porta eu purus.
+              p #{mainPage.content1}
+              h3= mainPage.title2
+              p #{mainPage.content2}
+              p #{mainPage.content3}
+
         .col-4.col-12-narrower
           #sidebar
             // Sidebar
             section
-              h3 Just a Subheading
-              p
-                  Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
-                  Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-                  Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis et nisi etiam.
+              h3= sideBar.title
+              p #{sideBar.content1}
+
               footer
-                a.button(href='#') Continue Reading
+                a.button(href='#') #{sideBar.mainLink}
             section
-              h3 Another Subheading
+              h3= sideBar.linkTitle
               ul.links
                 li
-                  a(href='#') Amet turpis, feugiat et sit amet
+                  a(href='#') #{sideBar.link1}
                 li
-                  a(href='#') Ornare in hendrerit in lectus
+                  a(href='#') #{sideBar.link2}
                 li
-                  a(href='#') Semper mod quis eget mi dolore
+                  a(href='#') #{sideBar.link3}
                 li
-                  a(href='#') Consequat etiam lorem phasellus
+                  a(href='#') #{sideBar.link4}
                 li
-                  a(href='#') Amet turpis, feugiat et sit amet
-                li
-                  a(href='#') Semper mod quisturpis nisi
+                  a(href='#') #{sideBar.link5}
+
               footer
-                a.button(href='#') More Random Links
+                a.button(href='#') #{sideBar.link6}

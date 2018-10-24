@@ -3,10 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-require('./app_server/models/db');
+require('./app_api/models/db');
+
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
+var routerApi = require('./app_api/routes/index');
 
 var app = express();
 
@@ -20,9 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/images',express.static(path.join(__dirname, 'public//images')));
 app.use('/css',express.static(path.join(__dirname, 'public/css')));
+app.use('/css',express.static(path.join(__dirname, 'public/angular')));
 app.use('/js',express.static(path.join(__dirname, 'public/js')));
 app.use('/fonts',express.static(path.join(__dirname, 'public/fonts')));
 
+app.use('/api', routerApi);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Loc = mongoose.model('Location');
-var Tech = mongoose.model('Technology');
+var Tec = mongoose.model('Technology');
 
 var sendJsonResponse = function(res,status,content){
   res.status(status);
@@ -11,7 +11,7 @@ var sendJsonResponse = function(res,status,content){
 //Get the 'home' page
 module.exports.homelist = function (req,res,next){
   Loc
-    .findOne({"_id": "5b9bff5e14fa7de5a113e765"})
+    .findOne({"_id":"5bd002e038f86ca368c74482"})
     .exec(function(err,locations){
       if (!locations) {
         sendJsonResponse(res,404,{"message": "location not found"});
@@ -22,7 +22,7 @@ module.exports.homelist = function (req,res,next){
       sendJsonResponse(res,200,locations)
   });
 };
-module.exports.onePost = function (req,res,next) {
+module.exports.oneArticle = function (req,res,next) {
   if (req.params && req.params.locationId) {
     Loc
       .findById(req.params.locationId)
@@ -42,7 +42,7 @@ module.exports.onePost = function (req,res,next) {
 
 module.exports.techPost = function (req,res,next) {
   if (req.params && req.params.techId) {
-    Tech
+    Tec
       .findById(req.params.techId)
       .exec(function(err,technologies) {
         if (!technologies) {
@@ -57,24 +57,7 @@ module.exports.techPost = function (req,res,next) {
     sendJsonResponse(res,404,{"message":"No techid in request"});
   }
 };
-module.exports.techInfo = function (req,res){
-  // Loc.create({
-  //   title: req.body.title,
-  //   cotent: req.body.content,
-  //   mainPage:{
-  //     title2:req.body.title2,
-  //     content1:req.body.content1,
-  //     content2:req.body.content2,
-  //     content3:req.body.content3,
-  //   }
-  // },function (err,tech) {
-  //     if (err) {
-  //       sendJsonResponse(res,400,err);
-  //     } else {
-  //       sendJsonResponse(res,201,tech);
-  //     }
-  // });
-};
+
 
 
 module.exports.commentCreate = function (req,res) {
@@ -118,7 +101,7 @@ module.exports.doAddComment = function (req,res){
     }
   };
 
-module.exports.locationInfo = function (req,res,next){};
-module.exports.techReadOne = function (req,res,next){};
-module.exports.commentWrite = function (req,res,next){};
+module.exports.techInfo = function (req,res,next){};
+module.exports.techOne = function (req,res,next){};
+module.exports.addReview = function (req,res,next){};
 module.exports.commentDeleteOne = function (req,res,next){};

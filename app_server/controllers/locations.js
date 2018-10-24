@@ -1,46 +1,76 @@
+var request = require('request');
+var apiOptions = {
+  server : "http://localhost:3000"
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "https://infinite-mesa-28382";
+}
+
+var renderHomepage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  }
+  res.render('index',{
+    title1: 'Bromitzvah',
+    pageSection1: {
+      title1: 'This Is Important',
+      content1: 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+
+      title2 : 'Another one',
+      content2 : 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+
+      title3 :'Probably Important',
+      content3 : 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+    },
+    pageSection2 :{
+      title1 : 'A gigantic heading you can use for whatever',
+      content1 : 'With a much smaller subtitle hanging out just below it',
+    },
+     post1:[{
+
+        title:'The First Thing',
+        content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+      },{
+
+        title:'The Second Thing',
+        content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+
+      }],
+      post2:[{
+
+        title:'The Third Thing',
+        content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+      },{
+
+        title:'The Fourtht Thing',
+        content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+
+      }]
+
+  });
+
+};
 //Get the 'home' page
 module.exports.homelist = function (req,res,next) {
-res.render('index',{
-  title1: 'Bromitzvah',
-  pageSection1: {
-    title1: 'This Is Important',
-    content1: 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+  var requestOptions, path;
+path = '/api/home';
+requestOptions = {
+  url : apiOptions.server + path,
+  method : "GET",
+  json : {}
+};
 
-    title2 : 'Another one',
-    content2 : 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
+request(requestOptions,
+  function (err, response, body) {
+    renderHomepage(req, res, body);
+})
 
-    title3 :'Probably Important',
-    content3 : 'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
-  },
-  pageSection2 :{
-    title1 : 'A gigantic heading you can use for whatever',
-    content1 : 'With a much smaller subtitle hanging out just below it',
-  },
-  posts :[{
-
-      title1:'The First Thing',
-      content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
-    },{
-
-      title:'The Second Thing',
-      content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
-
-    },{
-
-      title:'The Third Thing',
-      content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
-    },{
-
-      title:'The Fourtht Thing',
-      content:'Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.',
-
-    }]
-
-});
 };
 
 //Get 'Location info' page
-module.exports.locationInfo = function (req,res,next) {
+module.exports.techInfo = function (req,res,next) {
 res.render('tech',{
   title: 'TechNews',
   cotent: 'Sidebar on the right, content on the left.',

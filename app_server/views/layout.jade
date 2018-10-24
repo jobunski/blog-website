@@ -1,5 +1,5 @@
 doctype html
-html
+html (ng-app='locatorApp')
   head
     title Stories worth the Listen
     meta(charset='utf-8')
@@ -115,6 +115,8 @@ html
             li | Design:
               a(href='#') NiagraFalls
     // Scripts
+    script(src='/angular/angular.min.js')
+    script(src='/angular/locatorApp.js')
     script(src='/js/jquery.min.js')
     script(src='/js/jquery.dropotron.min.js')
     script(src='/js/browser.min.js')

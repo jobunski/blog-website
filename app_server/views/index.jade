@@ -35,14 +35,25 @@ block content
       p #{pageSection2.content1}
 
   // Posts
-    section.wrapper.style1
-    .container
-      .row
-        section.col-6.col-12-narrower
-          .box.post
-          each val in posts
-            a.image.left(href='#')
-              img(src='images/pic01.jpg', alt='')
-            .inner
-              h3= val.title
-              p= val.content
+  section.wrapper.style1
+  .container
+    .row
+      section.col-6.col-12-narrower
+        .box.post
+        if post1
+        each val in post1
+          a.image.left(href='#')
+            img(src='images/pic01.jpg', alt='')
+          .inner
+            h3= val.title
+            p= val.content
+                
+      section.col-6.col-12-narrower
+        .box.post
+        if post2
+        each val in post2
+          a.image.left(href='#')
+            img(src='images/pic01.jpg', alt='')
+          .inner
+            h3= val.title
+            p= val.content
